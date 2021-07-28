@@ -11,6 +11,25 @@ import java.io.PrintWriter;
 public class TinhChietKhau extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        resp.setCharacterEncoding("UTF-8");
+
+        try (PrintWriter writer = resp.getWriter()) {
+            writer.println("<!DOCTYPE html><html>");
+            writer.println("<head>");
+            writer.println("<meta charset=\"UTF-8\" />");
+            writer.println("<title>MyServlet.java:doGet(): Servlet code!</title>");
+            writer.println("</head>");
+            writer.println("<body>");
+
+            writer.println("<h1>This is a simple java servlet.</h1>");
+
+            writer.println("</body>");
+            writer.println("</html>");
+        }
+
+
+
         float ListPrice = Float.parseFloat(req.getParameter("ListPrice"));
         float Discount = Float.parseFloat(req.getParameter("Discount"));
         String Description = req.getParameter("Description");
